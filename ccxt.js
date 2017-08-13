@@ -8771,9 +8771,9 @@ var gatecoin = {
         };
     },
     
-    async fetchMyOrders() {
-        return await this.privateGetTradeOrders();
-    },
+    async fetchMyOpenOrders() {
+		return await this.privateGetTradeOrders();
+	},
 
     async cancelOrder (id) {
         await this.loadMarkets ();
