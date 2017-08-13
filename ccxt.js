@@ -8764,11 +8764,15 @@ var gatecoin = {
             else
                 throw new AuthenticationError (this.id + ' two-factor authentication requires a missing ValidationCode parameter');
         }
-        let response = this.privatePostTradeOrders (this.extend (order, params));
+        let response = await this.privatePostTradeOrders (this.extend (order, params));
         return {
             'info': response,
             'id': response['clOrderId'],
         };
+    },
+    
+    async fetchMyOrders() {
+        return await this.privateGetTradeOrders();
     },
 
     async cancelOrder (id) {
